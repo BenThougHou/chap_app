@@ -462,7 +462,7 @@ public class PersonalCenterServiceImpl extends ICommServiceImpl implements Perso
 		MessageUtil mu = new MessageUtil();
         try {
 
-            String sql = "SELECT t_certification_type FROM t_certification WHERE t_type = 0 and t_user_id = ?";
+            /*String sql = "SELECT t_certification_type FROM t_certification WHERE t_type = 0 and t_user_id = ?";
 
             List<Map<String, Object>> bySQLTOMap = this.getFinalDao().getIEntitySQLDAO().findBySQLTOMap(sql, userId);
 
@@ -472,8 +472,11 @@ public class PersonalCenterServiceImpl extends ICommServiceImpl implements Perso
                 mu = new MessageUtil();
                 mu.setM_istatus(1);
                 mu.setM_object(bySQLTOMap.get(0));
-            }
+            }*/
 
+            mu = new MessageUtil();
+            mu.setM_istatus(1);
+            //mu.setM_object(bySQLTOMap.get(0));
         } catch (Exception e) {
             e.printStackTrace();
             logger.error("{}获取实名认证状态异常!", userId, e);

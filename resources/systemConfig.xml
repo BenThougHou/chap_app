@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<!-- 支付宝相关 -->
+<properties>
+	<!-- 推流地址【一般不用】 -->
+	<entry key="play_addr">rtmp://pili-live-rtmp.xinedai.online/motan/</entry>
+	<!-- 项目名称 -->
+	<entry key="projectName">HiShow</entry>
+
+	<!-- 支付宝回调地址 -->
+	<entry key="alipayNotifyUrl">http://119.23.52.123:8080/app/pay/alipay_callback.html</entry>
+	<!-- 微信支付回调地址 -->
+	<entry key="weixinNotifyUrl">http://119.23.52.123:8080/app/pay/wxPayCallBack.html</entry>
+	<!-- H5回调地址 -->
+	<entry key="h5NotifyUrl">http://119.23.52.123:8080/app/pay/alipayH5PayNotify.html</entry>
+	<!-- H5回调页面地址 -->
+	<entry key="h5ReturnUrl">http://119.23.52.123:8080/app/success.jsp</entry>
+	<!-- 鉴黄图片保存地址 -->
+	<entry key="video_img_url">http://119.23.52.123:8080/upload/</entry>
+	<!-- 配置图片房间地址【m项目地址】 -->
+	<entry key="spreed_img_url">http://119.23.52.123:8080/upload/</entry>
+	<!-- 分享链接【share项目地址】 -->
+	<entry key="share_url">http://119.23.52.123:8080/share/share/jumpShare.htm?userId=</entry>
+	<!-- 微信支付IP地址【app项目ip】 -->
+	<entry key="spbill_create_ip">119.23.52.123</entry>
+	<!-- 极光推送相关 -->
+	<entry key="app_key">07f3fef4476cf7753d63e326</entry>
+	<entry key="master_secret">eb0f310e3b5d389f8f4c60cd</entry>
+	<!-- 渠道推广背景图片存储路径   windows -->
+	<entry key="windows_speed_fileUrl">D:/speed/img/</entry>
+	<!-- 渠道推广背景图片存储路径   centos -->
+	<entry key="centos_speed_fileUrl">/speed/img/</entry>
+	<!--加密 公钥 -->
+	<!--加密 公钥 -->
+	<entry key="encrypt_public">MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCEX8uKgV3qbs+JjOGldH+OXA/7S7KtgWu2DHydcrUS+pwDtAw5cA8gRSHlVk8vVxSn89gy3Nhz0EA2qfxPB1hciWTy4lziKPEsCJcGq1ri/bADHj2CXiYLOkM6RxWhgFDiT+Afcu4XnYRCL5gFGaEvyVk3UV369qjG7y3ijhUHGwIDAQAB</entry>
+	<!--解密 私钥 -->
+	<entry key="encrypt_private">MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAIRfy4qBXepuz4mM4aV0f45cD/tLsq2Ba7YMfJ1ytRL6nAO0DDlwDyBFIeVWTy9XFKfz2DLc2HPQQDap/E8HWFyJZPLiXOIo8SwIlwarWuL9sAMePYJeJgs6QzpHFaGAUOJP4B9y7hedhEIvmAUZoS/JWTdRXfr2qMbvLeKOFQcbAgMBAAECgYAmDsycI5l2vykX6NMvGJFbwogtvZO/YogvLOPe+I2qyTZ1shwZn2gZ5QZbwza865JavzaXWPs6QNNVZAXQStJSTjqGLHiOK9kQWflF7XtZtBoAVAKP9lLveyBXtTrII/3LSzIvMECdT5YYYLzU91vpolg9+0WpzEHtRdtbDIyLEQJBAMm5ofn6kpQ88IW7ypMcZ5RFy46XPxeaZhmAQwSONYzGVArpjHfe3wKC5QxqfGThHT2YCPSFukhvsLN6etF537cCQQCn/W2ruSXrLhMy8dgkEwQL+EX9cd97qDvpd1u5u1TQ+kZo3cJ5SEONucM3YN5Tnu9FfG2aBEk9wZywl4pNcgu9AkEAvRVphJ2hA55TfadW7Kn1VQBPG2sd0owBI+ob54s9GqVUZZ4g8sNPmlUDSa4Ox6hS9kcqLbmjsP4wTSuDMBLi5QJARqbceCufWgD/zB5QxCNHQW2Cqiw5TL2drPwpFL1H17ha4oHZ575PwwyMoP7ZopumkDfbtLn2v8VtDAw/+4BqlQJAKlzcv+cjy+aA41gX68QeDr3sBx6LxtmJMhblwNGRsU1Y+AX0dAMFNLxss+sYQC9MiPW/LDkmyHPrAtAD9F/ASw==</entry>
+
+	<!-- 短连接key -->
+	<entry key="short_key"></entry>
+	<!-- <entry key="short_key">******</entry> -->
+	<!-- im过滤url -->
+	<entry key="im_filter_url">https://console.tim.qq.com/</entry>
+	<!-- 腾讯IM appId -->
+	<entry key="im_appid">1400526583</entry>
+	<!-- 腾讯IM私钥 -->
+	<entry key="im_private_key">b18db03c42cd57300ec5ffcfae30d91632b7d7a3ef370438aad10a069d9d3fc7</entry>
+	<!-- mina服务器调用地址【mina项目地址】 -->
+	<entry key="chat_mina_url">http://119.23.52.123:8081/server_mina/app/</entry>
+
+	<!--短信发送账号-->
+	<entry key="chat_sms_username">*******</entry>
+	<!--短信发送账号密码-->
+	<entry key="chat_sms_password">*******</entry>
+	<entry key="sms_name">*******</entry>
+
+	<!--鉴黄ak/mk-->
+	<entry key="chat_chi_ak">jMhryKsbIn2DpM1m0QiYcq_KwnlRzZ5meE-0tM6A</entry>
+	<entry key="chat_chi_sk">rN7geagyAYpA-2anKnID-FkCTCDv9UEQceML0-Om</entry>
+
+	<!-- 支付派回调 -->
+	<entry key="alipayH5zhifupaiNotify">http://119.23.52.123:8080/app/pay/zhifupaiH5_callback.html</entry>
+	<!--支付派小程序支付原始原始ID-->
+	<entry key="userName"></entry>
+	<!--支付派支付类型 app/(微信)wx/(支付宝)zfb-->
+	<entry key="alipayH5zhifupaiType">wx</entry>
+	<entry key="alipay_customerNumber"></entry>
+	<entry key="alipay_secret_key"></entry>
+
+	<entry key="default_boy_handImg">https://hishow-1306002173.cos.ap-chengdu.myqcloud.com/backstage/20200521/202005210537223834.png</entry>
+	<entry key="default_girl_handImg">https://hishow-1306002173.cos.ap-chengdu.myqcloud.com/backstage/20200521/202005210537423174.png</entry>
+
+	<!--印度短信-->
+	<entry key="india_sms_appkey">nQJy81</entry>
+	<entry key="india_sms_appsecret">t9o20o</entry>
+	<entry key="india_sms_appcode">1000</entry>
+	<entry key="india_sms_url">http://47.242.85.7:9090/sms/batch/v2</entry>
+	<entry key="india_sms_msg">Dear Customer, Your otp is {0}. Thank You!</entry>
+
+
+
+</properties>

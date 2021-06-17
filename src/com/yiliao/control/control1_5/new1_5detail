@@ -1,0 +1,12 @@
+1.后台新增iOS 版本控制
+      新增版本控制类型字段  t_version_type  varchar(20);
+     
+2.启用附近相关接口
+
+3.banner 新增类别字段 t_type  int;
+      后台修改banner 新增类别
+  app端 新增IOS请求接口
+
+4.在数据库中t_system_setup 表中 t_scope 字段设置 附近地图范围
+
+5.后台增加用户分布地图

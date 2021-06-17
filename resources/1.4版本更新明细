@@ -1,0 +1,70 @@
+1.修改个人中 
+     /app/index.do  新增字段  ： t_autograph 个性签名 
+                            extractGold 用户可提现金币
+                            
+2.修改订单表  新增视频聊天时间(注意 需要所有数据库同步 否则报错) 
+              字段：t_log_time  int 
+
+3.重新构建用户金币明细接口
+     getUserGoldDetails.do
+     getProfitAndPayTotal.do
+     
+4.重构我的相册接口,1.4版以前的相册接口废弃.但不能删除,不能保证所有用户全部更新APP版本
+   1).t_album 表中 新增上传时间 t_create_time
+
+5.新增个人资料接口
+   getMydata.do
+   getAnchorData.do
+   
+6.新增获取亲密度和礼物的排行接口(每个排行取3条记录)->应用在主播个人主页中的 亲密榜和礼物柜
+   getIntimateAndGift.do
+   
+7.新增获取亲密度列表的接口
+   getAnthorIntimateList.do
+   
+8.新增获取主播礼物列表
+   getAnthorGiftList.do
+9.新增主播计时表
+   CREATE TABLE `t_log_time` (
+    `t_id` int(11) NOT NULL AUTO_INCREMENT,
+    `t_user_id` int(11) DEFAULT NULL,
+    `t_login_time` datetime DEFAULT NULL,
+    `t_logout_time` datetime DEFAULT NULL,
+    `t_duration` int(11) DEFAULT NULL,
+  	PRIMARY KEY (`t_id`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+10. 新增通话记录
+    SET FOREIGN_KEY_CHECKS=0;
+
+	-- ----------------------------
+	-- Table structure for t_call_log
+	-- ----------------------------
+	DROP TABLE IF EXISTS `t_call_log`;
+	CREATE TABLE `t_call_log` (
+	  `t_id` int(11) NOT NULL AUTO_INCREMENT,
+	  `t_callout_user` int(11) DEFAULT NULL,
+	  `t_answer_user` int(11) DEFAULT NULL,
+	  `t_create_time` datetime DEFAULT NULL,
+	  PRIMARY KEY (`t_id`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+11.新增设备控制表
+    SET FOREIGN_KEY_CHECKS=0;
+
+	-- ----------------------------
+	-- Table structure for t_device_login_log
+	-- ----------------------------
+	DROP TABLE IF EXISTS `t_device_login_log`;
+	CREATE TABLE `t_device_login_log` (
+	  `t_id` int(11) NOT NULL AUTO_INCREMENT,
+	  `t_device_number` varchar(255) DEFAULT NULL,
+	  `t_user_id` int(11) DEFAULT NULL,
+	  `t_login_time` datetime DEFAULT NULL,
+	  PRIMARY KEY (`t_id`)
+	) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+    
+		       
+   
+
+     

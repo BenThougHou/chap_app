@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	default-autowire="byName" default-lazy-init="true">
+
+	<!-- 数据源定义,使用Apache DBCP 连接池 -->
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName"
+			value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+
+		<property name="connectionInitSqls"
+			value="set names utf8mb4;" />
+		<!-- 初始化连接数 -->
+		<property name="initialSize" value="10" />
+		<!-- 最大活动连接数 -->
+		<property name="maxActive" value="3000" />
+		<!-- 最大空闲连接数 -->
+		<property name="maxIdle" value="100" />
+		<!-- 最小空闲连接数 -->
+		<property name="minIdle" value="10" />
+		<!-- 获取连接超时等待时间(毫秒) -->
+		<property name="maxWait" value="3000" />
+
+		<!-- 数据库重启后获取连接 -->
+		<property name="validationQuery" value="select 1 from dual" />
+		<!-- 借出连接时不要测试，否则很影响性能 -->
+		<property name="testOnBorrow" value="false" />
+		<!-- 指明连接是否被空闲连接回收器(如果有)进行检验.如果检测失败,则连接将被从池中去除 -->
+		<property name="testWhileIdle" value="true" />
+		<!-- 在每次空闲连接回收器线程(如果有)运行时检查的连接数量 -->
+		<property name="numTestsPerEvictionRun" value="3" />
+
+		<!-- 是否在自动回收超时连接的时候打印连接的超时错误 -->
+		<property name="logAbandoned" value="true" />
+
+		<!-- 空闲池空闲连接激活线程的运行间隔时间（毫秒） -->
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<!-- 空闲池中空闲连接能够被激活前的最小空闲时间（毫秒） -->
+		<property name="minEvictableIdleTimeMillis" value="60000" />
+
+		<!--removeAbandoned: 是否自动回收超时连接 -->
+		<property name="removeAbandoned" value="true" />
+		<!-- removeAbandonedTimeout 超时时间(以s为单位) -->
+		<property name="removeAbandonedTimeout" value="20" />
+
+	</bean>
+
+	<!--Hibernate SessionFatory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocations">
+			<list>
+				<value>classpath*:hibernate.cfg.xml</value>
+			</list>
+		</property>
+		<property name="configurationClass"
+			value="org.hibernate.cfg.AnnotationConfiguration" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<prop key="hibernate.cache.use_query_cache">${hibernate.cache.use_query_cache}</prop>
+				<prop key="hibernate.cache.provider_class">${hibernate.cache.provider_class}</prop>
+				<prop
+					key="hibernate.cache.provider_configuration_file_resource_path">${hibernate.ehcache_config_file}</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- hibernateTemplate -->
+	<bean id="iEntityHQLDAOImpl"
+		class="com.yiliao.dao.impl.IEntityHQLDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- jdbctemplate -->
+	<bean id="iEntitySQLDAOImpl"
+		class="com.yiliao.dao.impl.IEntitySQLDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+		<property name="dbType" value="ORACLE" />
+	</bean>
+
+	<!--Hibernate TransactionManager -->
+	<bean id="tm"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 基本事务定义,使用transactionManager作事务管理,默认get*方法的事务为readonly,其余方法按默认设置.默认的设置请参考Spring文档事务一章. -->
+	<tx:advice id="td" transaction-manager="tm">
+		<tx:attributes>
+			<tx:method name="find*" propagation="REQUIRED" />
+			<tx:method name="get*" propagation="REQUIRED" />
+			<tx:method name="load*" propagation="REQUIRED" />
+			<tx:method name="show*" propagation="REQUIRED" />
+			<tx:method name="list*" propagation="REQUIRED" />
+			<tx:method name="query*" propagation="REQUIRED" />
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 以AspectJ方式 定义 -->
+	<aop:config>
+		<aop:pointcut id="serviceImpl"
+			expression="execution(* com.yiliao.service.impl..*Impl.*(..))" />
+		<aop:advisor advice-ref="td" pointcut-ref="serviceImpl" />
+	</aop:config>
+
+
+	<!-- (事务管理) -->
+	<bean name="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 使用annotation定义事务 -->
+	<tx:annotation-driven
+		transaction-manager="transactionManager" />
+
+</beans>

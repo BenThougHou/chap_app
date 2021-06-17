@@ -1,0 +1,90 @@
+body,p,h1,h2,h3,h4,h5,li,span,i,ul,img,a,strong,input,button,textarea,select,dl,dd,dt{margin:0;padding:0;}
+body{font-family:"microsoft yahei","Arial";font-size: 0.24rem;line-height: 1;color:#333;-webkit-user-select:none;-webkit-text-size-adjust: 100% !important; text-size-adjust: 100% !important;-moz-text-size-adjust: 100% !important;}
+::-webkit-scrollbar{width: 0;height: 0;}/*滚动条宽高设为0*/
+*{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+[class|="ico"]{-webkit-background-size: 100% 100%;background-size: 100% 100%;display: inline-block;vertical-align: middle;}
+[class|="icon-"]{font-family:"iconfont" !important;font-size:.24rem !important;font-style:normal;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}
+li{list-style-type:none; float:left;}
+a{text-decoration:none;color: #333;}
+img{border:none;vertical-align: middle;margin-top: 0;}
+i,var,em{font-style:normal;}
+button{font-family:"microsoft yahei","Arial";outline:none;cursor: pointer;font-size: 0.24rem;border: none;}
+iframe{border: none;}
+input,select,textarea{outline:none;font-family:"microsoft yahei","Arial";font-size: 0.24rem;border-radius: 0;}
+input:disabled{opacity: 1;color:#333;}
+input[type="submit"],input[type="reset"],input[type="text"],input[type="password"],input[type="number"],input[type="button"],button,input[type="date"],textarea{-webkit-appearance: none;border: none;background: none;}
+textarea{resize:none;}
+div{margin:0 auto;}
+.fl{float:left;}
+.fr{float:right;}
+.dt{display: table;width: 100%;}
+.fl-w{float: left;width: 100%;}
+.clear{clear:both;}
+.fixed{z-index: 2;position: fixed;left: 0;bottom: 0;width: 100%;}
+.poa{z-index: 1;position: absolute;left: 0;bottom: 0;width: 100%;}
+.bgsz{-webkit-background-size: 100% 100%;background-size: 100% 100%;}
+.hide{display:none !important;}
+.bdn>:last-child{border-bottom: none;}
+
+.mobile-wrap{position: relative;}
+
+body,html{
+	width: 100%;
+	height: 100%;
+}
+body.bg{
+	background: url(../images/bg1.jpg) repeat-y;
+	-webkit-background-size: 100% auto;
+	background-size: 100% auto;
+}
+
+.download{
+	width: 7.5rem;
+	display: table;
+	min-height: 100%;
+	background: url(../images/bg.png) top center no-repeat;
+	-webkit-background-size: 100%auto;
+	background-size:  100% auto;
+	position: relative;
+}
+.download-btn{
+	width: 100%;
+	padding-top: 10rem;
+	text-align: center;
+	position: relative;
+}
+.download-btn span{
+	width: 2.88rem;
+	height: .9rem;
+	border-radius: .45rem;
+	position: absolute;
+	left: 50%;
+	margin-left: -1.44rem;
+	top: 10rem;
+	display: none;
+}
+.download-btn a{
+	display: inline-block;
+	width: 2.88rem;
+	height: .9rem;
+	background-color: #d9c1c7;
+	border-radius: .45rem;
+	line-height: .9rem;
+	font-size: .32rem;
+	color: #333;
+}
+.download-prompt{
+	position: absolute;
+	right: .12rem;
+	top: .08rem;
+	display: none;
+}
+.download-prompt img{
+	height: 1.42rem;
+}
+
+
+
+
+
+

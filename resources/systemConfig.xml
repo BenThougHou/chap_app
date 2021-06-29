@@ -46,7 +46,7 @@
 	<!-- 腾讯IM私钥 -->
 	<entry key="im_private_key">b18db03c42cd57300ec5ffcfae30d91632b7d7a3ef370438aad10a069d9d3fc7</entry>
 	<!-- mina服务器调用地址【mina项目地址】 -->
-	<entry key="chat_mina_url">http://119.23.52.123:8081/server_mina/app/</entry>
+	<entry key="chat_mina_url">http://47.241.209.235:8081/server_mina/app/</entry>
 
 	<!--短信发送账号-->
 	<entry key="chat_sms_username">*******</entry>

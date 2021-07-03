@@ -872,12 +872,12 @@ public class LoginServiceImpl extends ICommServiceImpl implements LoginService {
 				upateLoginState(Integer.parseInt(user.get(0).get("t_id").toString()),user.get(0).get("t_disable").toString(), t_token);
 
 				// 查询出用户的可用余额
-				sql = "SELECT SUM(b.t_profit_money+b.t_recharge_money+b.t_share_money) AS amount FROM t_balance  b WHERE b.t_user_id = ?";
+				/*sql = "SELECT SUM(b.t_profit_money+b.t_recharge_money+b.t_share_money) AS amount FROM t_balance  b WHERE b.t_user_id = ?";
 
 				Map<String, Object> money = this.getFinalDao().getIEntitySQLDAO().findBySQLUniqueResultToMap(sql,
 						user.get(0).get("t_id"));
 
-				user.get(0).put("gold", new BigDecimal(money.get("amount").toString()).intValue());
+				user.get(0).put("gold", new BigDecimal(money.get("amount").toString()).intValue());*/
 				user.get(0).put("t_token", t_token);
 				mu = new MessageUtil();
 				mu.setM_istatus(1);

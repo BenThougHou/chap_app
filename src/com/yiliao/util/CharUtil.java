@@ -83,13 +83,14 @@ public class CharUtil {
 	    * @return
 	    */
 	   public static String generateName() {
-	       int adjLen= adjective.length;
+	   	   return "vip user";
+	      /* int adjLen= adjective.length;
 	       int nLen= noun.length;
 	       StringBuffer sb = new StringBuffer();
 	       Random random = new Random();
 	       sb.append(adjective[random.nextInt(adjLen)]);
 	       sb.append(noun[random.nextInt(nLen)]);
-	       return sb.toString();
+	       return sb.toString();*/
 	   }
 	
 	  /**

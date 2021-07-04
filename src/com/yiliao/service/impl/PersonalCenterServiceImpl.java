@@ -913,14 +913,14 @@ public class PersonalCenterServiceImpl extends ICommServiceImpl implements Perso
             userData.put("coverList", coverList);
 
             // 获取用户充值等级
-            String qSql = "SELECT SUM(t_profit_money + t_recharge_money + t_share_money) AS balance FROM t_balance WHERE t_user_id = ? ";
+            /*String qSql = "SELECT SUM(t_profit_money + t_recharge_money + t_share_money) AS balance FROM t_balance WHERE t_user_id = ? ";
 
             Map<String, Object> banlance = this.getMap(qSql, userId);
 
             userData.put("goldLevel", this.goldFiles(new BigDecimal(banlance.get("balance").toString()).intValue()));
             // 用户余额
             userData.put("balance",
-                    new BigDecimal(banlance.get("balance").toString()).setScale(2, BigDecimal.ROUND_DOWN));
+                    new BigDecimal(banlance.get("balance").toString()).setScale(2, BigDecimal.ROUND_DOWN));*/
 
             // 获取免费视频
             List<Map<String, Object>> sqlList = this.getQuerySqlList(

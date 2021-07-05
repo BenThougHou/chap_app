@@ -204,7 +204,8 @@ public class PersonalCenterServiceImpl extends ICommServiceImpl implements Perso
             // 是否视频验证
             String sql = "select t_certification_type from t_certification where t_user_id = ? and t_type = ?";
             List<Map<String, Object>> certifications = this.getQuerySqlList(sql, userId, 1);
-            userMap.put("videoIdentity", certifications.size()>0?certifications.get(0).get("t_certification_type"):0);
+            //userMap.put("videoIdentity", certifications.size()>0?certifications.get(0).get("t_certification_type"):0);
+            userMap.put("videoIdentity", 1);
             // 是否身份证验证
             certifications = this.getQuerySqlList(sql, userId, 3);
             userMap.put("idcardIdentity", certifications.size()>0?certifications.get(0).get("t_certification_type"):0);

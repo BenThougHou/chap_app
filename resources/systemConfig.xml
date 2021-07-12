@@ -20,7 +20,7 @@
 	<!-- 配置图片房间地址【m项目地址】 -->
 	<entry key="spreed_img_url">http://119.23.52.123:8080/upload/</entry>
 	<!-- 分享链接【share项目地址】 -->
-	<entry key="share_url">http://119.23.52.123:8080/share/share/jumpShare.htm?userId=</entry>
+	<entry key="share_url">http://47.241.209.235:8080/app/share/jumpShare.htm?userId=</entry>
 	<!-- 微信支付IP地址【app项目ip】 -->
 	<entry key="spbill_create_ip">119.23.52.123</entry>
 	<!-- 极光推送相关 -->

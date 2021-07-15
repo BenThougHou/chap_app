@@ -858,7 +858,7 @@ public class LoginServiceImpl extends ICommServiceImpl implements LoginService {
 	public MessageUtil userLogin(String phone, String password) {
 		MessageUtil mu = null;
 		try {
-			String sql = " SELECT u.t_id,u.t_nickName,u.t_handImg,u.t_is_vip,u.t_role,u.t_sex,u.t_disable,SUM(b.t_profit_money+b.t_recharge_money+b.t_share_money) AS amount,u.t_is_svip  FROM t_user u LEFT JOIN t_balance  b ON b.t_user_id = u.t_id  WHERE u.t_phone = ? AND u.t_pass_wrod = ? ";
+			String sql = " SELECT u.t_id,u.t_nickName,u.t_handImg,u.t_is_vip,u.t_role,u.t_sex,u.t_disable,SUM(b.t_profit_money+b.t_recharge_money+b.t_share_money) AS amount,u.t_is_svip,u.t_record  FROM t_user u LEFT JOIN t_balance  b ON b.t_user_id = u.t_id  WHERE u.t_phone = ? AND u.t_pass_wrod = ? ";
 			List<Map<String, Object>> user = this.getQuerySqlList(sql, phone, Md5Util.encodeByMD5(password));
 			String t_token = UUID.randomUUID().toString().replaceAll("-", "");
 			// 已经注册过用户了

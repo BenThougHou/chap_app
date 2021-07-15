@@ -406,11 +406,11 @@
 		mvn install:install-file -DgroupId=com.tencent-ocr -DartifactId=tencent-ocr-sdk -Dversion=2.2.7 -Dpackaging=jar -Dfile=//Users/rabbit/Downloads/王龙超/demo_mayun_2.5.6源码/附加文件/qcloud-sdk-2.2.7-jar-with-dependencies.jar
 		导入本地maven仓库中,工程doc目录中有这个jar包
 		-->
-		<!--<dependency>
+		<dependency>
 			<groupId>com.tencent-ocr</groupId>
 			<artifactId>tencent-ocr-sdk</artifactId>
 			<version>2.2.7</version>
-		</dependency>-->
+		</dependency>
 
 		<dependency>
 			<groupId>servletapi</groupId>

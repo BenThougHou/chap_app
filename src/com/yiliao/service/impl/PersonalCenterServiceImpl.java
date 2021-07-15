@@ -755,7 +755,7 @@ public class PersonalCenterServiceImpl extends ICommServiceImpl implements Perso
 
             // 查询被看人的数据
             sql = "SELECT u.t_sex,u.t_qq,u.t_handImg,u.t_age,u.t_role,u.t_onLine,u.t_idcard,u.t_nickName,u.t_vocation,u.t_weixin,u.t_phone,DATE_FORMAT(u.t_login_time,'%Y-%m-%d %T') AS t_login_time,"
-                    + "u.t_height,u.t_weight,u.t_constellation,u.t_city,u.t_autograph,u.t_marriage,u.t_is_vip,u.t_is_svip,ifnull(a.t_addres_url,'') t_addres_url "
+                    + "u.t_height,u.t_weight,u.t_constellation,u.t_city,u.t_autograph,u.t_marriage,u.t_is_vip,u.t_is_svip,u.t_record,ifnull(a.t_addres_url,'') t_addres_url "
                     + "FROM t_user u "
                     + " left join t_album a on a.t_user_id = u.t_id and t_file_type=1 and t_auditing_type=1 and t_is_first=1  "
                     + "WHERE u.t_id = ? ";
@@ -846,6 +846,7 @@ public class PersonalCenterServiceImpl extends ICommServiceImpl implements Perso
             // 如果当前被查看人为主播的时候
             // 须获取当前主播是否为大房间主播 是否开播
             if (dataMap.get("t_role").toString().equals("1")) {
+
 
                 List<Map<String, Object>> bigRooms = this.getQuerySqlList(
                         "SELECT t_is_debut,t_room_id,t_chat_room_id FROM t_big_room_man WHERE t_user_id = ?",
